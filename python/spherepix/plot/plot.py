@@ -1,11 +1,13 @@
 
 import numpy as np
+import scipy.misc as misc
 
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
 
 def plotImage(simg, vmin=None, vmax=None):
+
     N = simg.faceCount()
     for n in range(N):
         plt.subplot2grid((2, 3), (n / 3, n % 3))
@@ -118,3 +120,20 @@ def plotPixelation(pix, ax):
     for n in range(pix.faceCount()):
         etas = pix.faceCoordinates(n)
         plotContour(ax, etas)
+
+
+def plotPixelationImage(imgMapped, scale=1.0, cmap=None, vmin=None, vmax=None):
+    
+    fig = plt.figure(figsize=(scale*48, scale*36))
+
+    figCoords = [(1,0), (1,1), (1,2), (1,3), (2,1), (0,1)]
+    for n, p in enumerate(figCoords):
+        
+        img = imgMapped[n] if n != 4 else misc.imrotate(imgMapped[4], 90)
+        
+        plt.subplot2grid((3,4), p)
+        plt.imshow(img, vmin=vmin, vmax=vmax, cmap=cmap)
+        plt.tick_params(axis='both', which='both', labelbottom='off', labelleft='off')
+
+    fig.subplots_adjust(left=0, right=1.0, bottom=0, top=1.0, wspace=0.025, hspace=0.025)
+    return fig
