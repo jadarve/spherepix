@@ -10,10 +10,6 @@ A data structure for processing spherical images.
     }
 
 
-[![300 Hz Real Time Optical Flow ](http://img.youtube.com/vi/_oW1vMdBMuY/0.jpg)](http://www.youtube.com/watch?v=_oW1vMdBMuY)
-
-
-
 # Build and Installation
 
 ## Dependencies
@@ -36,7 +32,7 @@ A data structure for processing spherical images.
 The library and header files will be installed at **/usr/local/lib** and **/usr/local/include** respectively.
 
 
-##Python Wrappers
+## Python Wrappers
 
 A python package with wrappers to the C++ library is available at **spherepix/python/** folder. The wrappers have been developed and build using Cython 0.23.4.
 
