@@ -60,7 +60,7 @@ def copy(np.ndarray arr):
 
 def interpolateImage(inputImage, coordinates, outputImage = None):
     
-    if outputImage == None:
+    if outputImage is None:
         depth = 1 if inputImage.ndim == 2 else inputImage.shape[2]
         cshape = coordinates.shape
         shape = (cshape[0], cshape[1]) if depth == 1 else (cshape[0], cshape[1], depth)
@@ -85,7 +85,7 @@ def convolve2D(img, mask, output=None):
 
     # TODO: need to check for contiguity flag
     
-    if output == None:
+    if output is None:
         output = np.zeros_like(img)
 
     if img.dtype == np.float32:
@@ -106,7 +106,7 @@ def __convolve2D_float(np.ndarray img, np.ndarray mask, np.ndarray output):
 
 def convolveRow(img, mask, output=None):
     
-    if output == None:
+    if output is None:
         output = np.zeros_like(img)
 
     if img.dtype == np.float32:
@@ -127,7 +127,7 @@ def __convolveRow_float(np.ndarray img, np.ndarray mask, np.ndarray output):
 
 def convolveColumn(img, mask, output=None):
     
-    if output == None:
+    if output is None:
         output = np.zeros_like(img)
 
     if img.dtype == np.float32:
@@ -151,7 +151,7 @@ cdef class Image:
 
     def __cinit__(self, np.ndarray arr = None):
 
-        if arr == None:
+        if arr is None:
             self.numpyArray = None
             return
 
