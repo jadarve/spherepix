@@ -262,7 +262,7 @@ cdef class Image_float32:
 
         self.numpyArray = arr
 
-        if self.numpyArray == None:
+        if self.numpyArray is None:
             # creates an Image object with its own memory buffer
             self.img = Image_cpp[float](height, width, depth)
         else:
@@ -381,7 +381,7 @@ cdef class Image_int32:
 
         self.numpyArray = arr
 
-        if self.numpyArray == None:
+        if self.numpyArray is None:
             # creates an Image object with its own memory buffer
             self.img = Image_cpp[int](height, width, depth)
         else:
